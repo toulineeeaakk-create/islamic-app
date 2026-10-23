@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#064e3b">
+<title>زاد الهدى | Zad Al-Huda</title>
+<style>
+:root{
+ --green:#064e3b;--green2:#176b54;--sage:#789889;
+ --gold:#cba765;--cream:#f7f3e8;--paper:#fffdf6;
+ --ink:#193b30;--muted:#78877c;--line:#e8e0cf;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Tahoma,Arial,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+header{background:var(--green);color:white;padding:13px 17px;border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:5}
+.head{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px}
+.mark{font-size:35px;color:var(--gold)}
+.brand h1{font-size:20px;margin:0}
+.brand small{display:block;font-size:10px;color:#e5d7b8}
+.head button{background:none;color:white;border:1px solid #ffffff50;border-radius:10px;padding:7px 10px}
+main{max-width:1100px;margin:auto;padding:18px 14px 95px}
+.welcome{padding:22px;border:1px solid var(--gold);border-radius:20px;background:linear-gradient(135deg,#e4e7d6,#fff9e9);margin-bottom:17px}
+.welcome small{color:var(--green2)}
+.welcome h2{margin:5px 0;font-size:23px;color:var(--green)}
+.welcome p{margin:0;font-size:13px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:15px;margin:13px 0;box-shadow:0 4px 14px #44371a0a}
+.title{font-size:17px;margin:0 0 12px;color:var(--green)}
+.location{font-size:12px;color:var(--muted)}
+.prayers{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;text-align:center}
+.prayer{background:#f6f2e6;border-radius:11px;padding:10px 2px;font-size:11px}
+.prayer b{display:block;color:var(--green);font-size:13px;margin-top:5px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tile{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:15px 7px;color:var(--green);min-height:105px}
+.tile .ico{font-size:26px;display:block;margin-bottom:5px}
+.tile b{font-size:12px}
+.tile small{display:block;font-size:10px;color:var(--muted);margin-top:4px}
+.banner{background:linear-gradient(120deg,#064e3b,#779785);color:white;border-radius:16px;padding:20px;margin:16px 0;text-align:center}
+.banner p{margin:5px 0;font-size:14px}
+.page{display:none}
+.page.active{display:block}
+.home.active{display:block}
+.back{border:0;background:none;color:var(--green);padding:6px 0;margin-bottom:7px}
+.search{width:100%;padding:13px;border:1px solid var(--line);background:var(--paper);border-radius:13px;margin:7px 0 13px;color:var(--ink)}
+.tabs{display:flex;gap:7px;overflow:auto;margin:10px 0}
+.tabs button{white-space:nowrap;border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:8px 12px;color:var(--green);font-size:12px}
+.tabs button.selected{background:var(--green);color:white}
+.item{width:100%;text-align:right;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:14px;margin:5px 0;color:var(--ink)}
+.item b{display:block;color:var(--green)}
+.item small{color:var(--muted)}
+.arabic{font-size:24px;line-height:2.2;text-align:center}
+.text{line-height:2;font-size:15px}
+.action{background:var(--green);color:white;border:0;border-radius:25px;padding:11px 20px;margin:5px}
+.secondary{background:#e7ddc5;color:var(--green)}
+.counter{font-size:44px;color:var(--green);text-align:center;margin:14px}
+.compass{margin:20px auto;border:7px double var(--gold);border-radius:50%;width:220px;height:220px;display:flex;align-items:center;justify-content:center;background:linear-gradient(#fffdf4,#e8e8d9);font-size:58px}
+.center{text-align:center}
+footer{position:fixed;bottom:0;left:0;right:0;background:#fffdf6;border-top:1px solid var(--line);z-index:6;padding:7px 3px calc(7px + env(safe-area-inset-bottom))}
+.nav{display:flex;max-width:650px;margin:auto;justify-content:space-around}
+.nav button{border:0;background:none;color:#75877a;font-size:10px;padding:3px}
+.nav button span{display:block;font-size:21px}
+.nav button.on{color:var(--green);font-weight:bold}
+.note{color:var(--muted);font-size:12px;line-height:1.8}
+body.dark{--cream:#111b15;--paper:#1d2b22;--ink:#edf0e7;--line:#35473a;--muted:#b3c0b3}
+body.dark .welcome{background:#263b2e}
+body.dark .welcome h2,body.dark .title,body.dark .item b{color:#e2c789}
+body.dark .prayer{background:#263b2e}
+body.dark footer{background:#17251b}
+@media(min-width:750px){.grid{grid-template-columns:repeat(3,1fr)}main{padding-top:25px}.welcome{padding:28px}.tile{min-height:125px}.tile .ico{font-size:31px}}
+@media(max-width:430px){main{padding:12px 9px 90px}.prayers{grid-template-columns:repeat(3,1fr)}.welcome h2{font-size:20px}.panel{padding:12px}.grid{gap:7px}.tile{min-height:100px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="head">
+  <button id="menu" aria-label="الرئيسية">☰</button>
+  <div class="brand"><span class="mark">۞</span><div><h1>زاد الهدى</h1><small>Zad Al-Huda</small></div></div>
+  <button id="theme" aria-label="تغيير المظهر">☾</button>
+ </div>
+</header>
+
+<main>
+<section class="home active" id="home">
+ <div class="welcome">
+  <small>🌿 السلام عليكم ورحمة الله</small>
+  <h2>زاد الهدى</h2>
+  <p>خطوات صغيرة كل يوم تقرّبنا إلى الله.</p>
+ </div>
+
+ <div class="panel">
+  <h2 class="title">🕌 مواقيت الصلاة</h2>
+  <div class="location">📍 بيروت، لبنان — أوقات تجريبية حتى ربط خدمة المواقيت</div>
+  <div class="prayers">
+   <div class="prayer">الفجر<b>05:12</b></div>
+   <div class="prayer">الشروق<b>06:28</b></div>
+   <div class="prayer">الظهر<b>12:03</b></div>
+   <div class="prayer">العصر<b>15:37</b></div>
+   <div class="prayer">المغرب<b>18:12</b></div>
+   <div class="prayer">العشاء<b>19:42</b></div>
+  </div>
+  <p class="note">الأوقات أعلاه أمثلة شكلية وليست مواقيت مباشرة.</p>
+ </div>
+
+ <h2 class="title">✧ اكتشفي زاد الهدى</h2>
+ <div class="grid">
+  <button class="tile" data-open="quran"><span class="ico">📖</span><b>القرآن الكريم</b><small>تلاوة وتفسير</small></button>
+  <button class="tile" data-open="adhkar"><span class="ico">🌿</span><b>الأذكار</b><small>أذكار يومية</small></button>
+  <button class="tile" data-open="hadith"><span class="ico">۞</span><b>الحديث النبوي</b><small>أحاديث ومراجع</small></button>
+  <button class="tile" data-open="library"><span class="ico">📚</span><b>المكتبة الإسلامية</b><small>كتب وعلوم</small></button>
+  <button class="tile" data-open="worship"><span class="ico">🤲</span><b>العبادات</b><small>مسبحة ومهام</small></button>
+  <button class="tile" data-open="more"><span class="ico">✧</span><b>المزيد</b><small>القبلة والسيرة</small></button>
+ </div>
+ <div class="banner"><p>﴿ وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ﴾</p><small>سورة هود، الآية ٨٨</small></div>
+</section>
+
+<section class="page" id="quran">
+ <button class="back">‹ العودة</button><h2 class="title">القرآن الكريم</h2>
+ <input class="search" id="surahSearch" placeholder="ابحثي عن سورة..." />
+ <div class="tabs"><button class="selected">السور</button><button>الأجزاء</button><button>المفضلة</button></div>
+ <div id="surahs"></div>
+ <div id="reading" class="panel" hidden>
+  <h3 id="surahTitle"></h3><p class="arabic">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+  <p class="note">هذه معاينة أولية. سيُربط نص المصحف الكامل من مصدر موثوق لاحقًا.</p>
+  <button class="action" data-open="tafsir">التفسير</button>
+ </div>
+</section>
+
+<section class="page" id="tafsir">
+ <button class="back">‹ العودة</button><h2 class="title">التفسير</h2>
+ <div class="panel"><h3>تفسير الآيات</h3><p class="text">سيُضاف التفسير من مصدر موثوق مع اسم الكتاب ورقم الآية، مع إمكانية الاستماع إلى التلاوة عند ربط خدمة الصوت.</p></div>
+ <button class="action" id="play">▶ تشغيل تجريبي</button><p id="audioStatus" class="note"></p>
+</section>
+
+<section class="page" id="adhkar">
+ <button class="back">‹ العودة</button><h2 class="title">الأذكار</h2>
+ <div class="tabs"><button class="selected">أذكار الصباح</button><button>أذكار المساء</button><button>بعد الصلاة</button></div>
+ <div class="panel"><p class="arabic">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</p><p class="center">ذكر تجريبي — يُستكمل المحتوى مع توثيق المصادر</p><div class="center"><button class="action" id="dhikrCount">تكرار الذكر: ٠</button></div></div>
+ <div class="panel"><p class="arabic">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</p><p class="note">سيُضاف عدد التكرارات والمصادر الصحيحة لكل ذكر.</p></div>
+</section>
+
+<section class="page" id="hadith">
+ <button class="back">‹ العودة</button><h2 class="title">الحديث النبوي</h2>
+ <input class="search" placeholder="ابحثي عن حديث أو موضوع..." />
+ <div class="tabs"><button class="selected">الأحاديث</button><button>الموضوعات</button><button>المفضلة</button></div>
+ <div class="panel"><p class="text">سيُعرض هنا الحديث بنصه الصحيح، واسم الكتاب، ورقم الحديث، ودرجة صحته عند الحاجة.</p><p class="note">المصدر: سيُربط فهرس موثوق لصحيح البخاري وصحيح مسلم.</p></div>
+</section>
+
+<section class="page" id="library">
+ <button class="back">‹ العودة</button><h2 class="title">المكتبة الإسلامية</h2>
+ <input class="search" placeholder="ابحثي في المكتبة..." />
+ <div class="grid">
+  <button class="tile"><span class="ico">📚</span><b>الفقه والعبادات</b></button>
+  <button class="tile"><span class="ico">⚖️</span><b>قصص الأنبياء</b></button>
+  <button class="tile"><span class="ico">📖</span><b>العقيدة</b></button>
+  <button class="tile"><span class="ico">🌙</span><b>السيرة النبوية</b></button>
+  <button class="tile"><span class="ico">🤲</span><b>الأذكار والأدعية</b></button>
+  <button class="tile"><span class="ico">🕋</span><b>حصن المسلم</b></button>
+ </div>
+ <p class="note">ستُضاف الكتب بروابط قانونية ومصادر واضحة.</p>
+</section>
+
+<section class="page" id="worship">
+ <button class="back">‹ العودة</button><h2 class="title">العبادات والمسبحة</h2>
+ <div class="panel center"><p>عداد التسبيح</p><div class="counter" id="count">٠</div><button class="action" id="plus">تسبيح +١</button><button class="action secondary" id="reset">إعادة</button></div>
+ <div class="panel"><h3>مهام اليوم</h3><label><input type="checkbox"> أذكار الصباح</label><br><label><input type="checkbox"> ورد من القرآن</label><br><label><input type="checkbox"> أذكار المساء</label><br><label><input type="checkbox"> فائدة علمية</label><p class="note">النقاط تُحسب محليًا في هذه النسخة التجريبية.</p></div>
+</section>
+
+<section class="page" id="more">
+ <button class="back">‹ العودة</button><h2 class="title">المزيد</h2>
+ <button class="item" data-open="qibla"><b>🧭 اتجاه القبلة</b><small>تحديد الاتجاه بعد تفعيل الموقع</small></button>
+ <button class="item" data-open="prayers"><b>🕌 مواقيت الصلاة</b><small>المواقيت والتنبيهات</small></button>
+ <button class="item" data-open="seerah"><b>🌙 السيرة النبوية</b><small>حياة الرسول ﷺ</small></button>
+ <button class="item" data-open="lessons"><b>🎓 الدروس الإسلامية</b><small>علوم شرعية متنوعة</small></button>
+ <button class="item" data-open="search"><b>🔎 البحث</b><small>البحث في محتوى التطبيق</small></button>
+ <button class="item" data-open="settings"><b>⚙️ تخصيص المظهر</b><small>الألوان والوضع الليلي</small></button>
+</section>
+
+<section class="page" id="qibla">
+ <button class="back">‹ العودة</button><h2 class="title">اتجاه القبلة</h2>
+ <div class="compass">🕋</div><p class="center">اتجاه القبلة</p>
+ <p class="note center">هذا رسم توضيحي فقط. تحديد الاتجاه الحقيقي يحتاج إلى موقع وبوصلة.</p>
+</section>
+<section class="page" id="prayers">
+ <button class="back">‹ العودة</button><h2 class="title">مواقيت الصلاة</h2><div class="panel">سيتم ربط مواقيت الصلاة بموقعكِ وخدمة حساب موثوقة.</div>
+</section>
+<section class="page" id="seerah">
+ <button class="back">‹ العودة</button><h2 class="title">السيرة النبوية</h2><div class="panel">قسم للسيرة النبوية ﷺ، مرتب حسب الأحداث، مع مصادر موثوقة.</div>
+</section>
+<section class="page" id="lessons">
+ <button class="back">‹ العودة</button><h2 class="title">الدروس الإسلامية</h2><div class="panel">دروس في العقيدة والفقه والتفسير والتجويد والأخلاق.</div>
+</section>
+<section class="page" id="search">
+ <button class="back">‹ العودة</button><h2 class="title">البحث</h2><input class="search" placeholder="اكتبي كلمة للبحث..." /><p class="note">سيُفعّل البحث الشامل بعد إضافة المحتوى.</p>
+</section>
+<section class="page" id="settings">
+ <button class="back">‹ العودة</button><h2 class="title">تخصيص المظهر</h2>
+ <p>اختاري لون التطبيق:</p>
+ <div class="tabs">
+ <button data-color="#064e3b" class="selected">زمردي</button>
+ <button data-color="#315d49">أخضر</button>
+ <button data-color="#76533f">بني</button>
+ <button data-color="#4b4779">بنفسجي</button>
+ <button data-color="#244f69">أزرق</button>
+ </div>
+ <label>لون مخصص <input type="color" id="customColor" value="#064e3b"></label>
+ <p><button class="action" id="darkToggle">تبديل الوضع الفاتح/الداكن</button></p>
+</section>
+</main>
+
+<footer><nav class="nav">
+ <button class="on" data-open="home"><span>⌂</span>الرئيسية</button>
+ <button data-open="quran"><span>▤</span>القرآن</button>
+ <button data-open="adhkar"><span>❀</span>الأذكار</button>
+ <button data-open="search"><span>⌕</span>البحث</button>
+ <button data-open="more"><span>☰</span>المزيد</button>
+</nav></footer>
+
+<script>
+const pages=[...document.querySelectorAll(".home,.page")];
+function show(id){
+ pages.forEach(p=>p.classList.toggle("active",p.id===id));
+ document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("on",b.dataset.open===id));
+ window.scrollTo(0,0);
+}
+document.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>show(b.dataset.open)));
+document.querySelectorAll(".back").forEach(b=>b.addEventListener("click",()=>show("home")));
+document.getElementById("menu").onclick=()=>show("home");
+document.getElementById("theme").onclick=()=>document.body.classList.toggle("dark");
+document.getElementById("darkToggle").onclick=()=>document.body.classList.toggle("dark");
+document.querySelectorAll("[data-color]").forEach(b=>b.onclick=()=>{
+ document.documentElement.style.setProperty("--green",b.dataset.color);
+ document.querySelectorAll("[data-color]").forEach(x=>x.classList.remove("selected"));
+ b.classList.add("selected");
+});
+document.getElementById("customColor").oninput=e=>document.documentElement.style.setProperty("--green",e.target.value);
+let n=0;
+function draw(){document.getElementById("count").textContent=n.toLocaleString("ar");}
+document.getElementById("plus").onclick=()=>{n++;draw()};
+document.getElementById("reset").onclick=()=>{n=0;draw()};
+let dn=0;
+document.getElementById("dhikrCount").onclick=e=>{
+ dn++;e.target.textContent="تكرار الذكر: "+dn.toLocaleString("ar");
+};
+document.getElementById("play").onclick=()=>{
+ document.getElementById("audioStatus").textContent="التلاوة الصوتية تحتاج إلى ربط مصدر صوتي.";
+};
+const surahData=[
+["الفاتحة","مكية","٧"],["البقرة","مدنية","٢٨٦"],["آل عمران","مدنية","٢٠٠"],
+["النساء","مدنية","١٧٦"],["المائدة","مدنية","١٢٠"],["الأنعام","مكية","١٦٥"],
+["الأعراف","مكية","٢٠٦"],["الأنفال","مدنية","٧٥"],["التوبة","مدنية","١٢٩"],
+["يونس","مكية","١٠٩"],["هود","مكية","١٢٣"],["يوسف","مكية","١١١"]
+];
+const list=document.getElementById("surahs");
+function renderSurahs(q=""){
+ list.innerHTML="";
+ surahData.filter(s=>s[0].includes(q)).forEach((s,i)=>{
+  const b=document.createElement("button");b.className="item";
+  b.innerHTML="<b>"+(surahData.indexOf(s)+1).toLocaleString("ar")+" · "+s[0]+"</b><small>"+s[1]+" · "+s[2]+" آية</small>";
+  b.onclick=()=>{
+   document.getElementById("reading").hidden=false;
+   document.getElementById("surahTitle").textContent="سورة "+s[0];
+  };
+  list.appendChild(b);
+ });
+}
+renderSurahs();
+document.getElementById("surahSearch").addEventListener("input",e=>renderSurahs(e.target.value.trim()));
+</script>
+</body>
+</html>
